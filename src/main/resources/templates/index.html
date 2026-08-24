@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragmentos/header}"></div>
+<body>
+    <div th:replace="~{fragmentos/nav}"></div>
+    <div class="container">
+        <div class="container text-center" style="margin: 30px">
+            <h3>Lista de Contactos</h3>
+        </div>
+        <div class="container">
+            <table class="table table-hover table-striped aling-middle table-bordered">
+                <thead class="table-dark  text-center">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr th:each="contacto: ${contactos}">
+                        <th th:text="${contacto.id}" scope="row"></th>
+                        <td th:text="${contacto.nombre}"></td>
+                        <td th:text="${contacto.celular}"></td>
+                        <td th:text="${contacto.email}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<div th:replace="~{fragmentos/footer::footer}"></div>
+</body>
+</html>
