@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{fragmentos/header}"></div>
+<div th:replace="~{fragmentos/header::header(titulo='Inicio')}"></div>
 <body>
-    <div th:replace="~{fragmentos/nav}"></div>
+    <div th:replace="~{fragmentos/nav::nav}"></div>
     <div class="container">
         <div class="container text-center" style="margin: 30px">
             <h3>Lista de Contactos</h3>

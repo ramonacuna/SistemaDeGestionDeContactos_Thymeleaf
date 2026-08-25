@@ -33,24 +33,18 @@ public class indexController {
         return "agregar";
     }
 
-    @PostMapping ("/agregar")
-    public  String agregar(@ModelAttribute("contactoForm") Contacto contacto) {
-        log.info("Agregando contacto: {}", contacto);
-        contactoService.save(contacto);
-        return "redirect:/";
-    }
 
     @GetMapping("/editar/{id}")
     public String mostrarEditar(@PathVariable("id") Integer id, ModelMap model) {
         Contacto contacto = contactoService.findById(id);
         log.info("Contacto recuperado para edición: {}", contacto);
         model.addAttribute("contactoForm", contacto);
-        return "editar";
+        return "agregar";
     }
 
-    @PostMapping("/editar/{id}")
-    public String editar(@ModelAttribute("contactoForm") Contacto contacto) {
-        log.info("Editando contacto: {}", contacto);
+    @PostMapping ("/guardar")
+    public  String agregar(@ModelAttribute("contactoForm") Contacto contacto) {
+        log.info("Guardando contacto: {}", contacto);
         contactoService.save(contacto);
         return "redirect:/";
     }
